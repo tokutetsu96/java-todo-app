@@ -24,7 +24,7 @@
 				<tr th:each="todo : ${todos}">
 					<td th:text="${todo.id}"></td>
 					<td th:text="${todo.title}"></td>
-					<td th:text="${todo.isCompleted != null ? (todo.isCompleted ? '完了' : '未完了') : '未選択'}"></td>
+					<td th:text="${todo.isCompleted ? '完了' : '未完了'}"></td>
 					<td th:text="${todo.createdAt}"></td>
 					<td th:text="${todo.updatedAt}"></td>
 					<td>
