@@ -40,9 +40,15 @@
 			*
 		FROM
 			todo
-		where
+		WHERE
 			id = #{id}
 	</select>
+	
+	<delete id="deleteOneTodo">
+		DELETE FROM todo
+		WHERE 
+			id = #{id};
+	</delete>
 	
 	<update id="updateOneTodo">
 		UPDATE

@@ -12,4 +12,6 @@ public interface TodoService {
 	public TodoForm getOneTodo(Long id);
 
 	public void updateTodo(TodoForm todoForm);
+
+	public void deleteTodo(Long id);
 }

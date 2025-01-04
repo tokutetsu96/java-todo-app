@@ -29,6 +29,12 @@ public class TodoServiceImpl implements TodoService {
 		TodoForm todo = todoMapper.getEditTodo(id);
 		return todo;
 	}
+	
+	@Override
+	public void deleteTodo(Long id) {
+		
+		todoMapper.deleteOneTodo(id);
+	}
 
 	@Override
 	public void updateTodo(TodoForm todoForm) {

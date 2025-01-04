@@ -17,4 +17,6 @@ public interface TodoMapper {
 
 	public void updateOneTodo(@Param("todo") TodoForm todoForm);
 
+	public void deleteOneTodo(Long id);
+
 }

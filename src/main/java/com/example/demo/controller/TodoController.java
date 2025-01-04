@@ -52,9 +52,15 @@ public class TodoController {
         model.addAttribute("todo", todo);
         return "todo/editTodo";
     }
+    
+    @PostMapping("/delete/{id}")
+    public String deleteTodo(@PathVariable Long id) {
+    	todoService.deleteTodo(id);
+    	return "redirect:/todo";
+    }
 
     /**
-     * 指定されたTodoの詳細を更新します。
+     * 指定されたTodoを更新します。
      * 
      * @param todoForm 
      * @return todo.htmlへのリダイレクト
