@@ -31,6 +31,8 @@
 			updated_at
 		FROM
 			todo
+		WHERE
+			is_completed = false
 		ORDER BY
 			id
 	</select>
@@ -61,4 +63,19 @@
 		WHERE
 			id = #{todo.id};
 	</update>
+	
+	<insert id="insertOneTodo">
+		INSERT INTO todo (
+			title,
+			description,
+			is_completed,
+			created_at
+		)
+		VALUES (
+			#{createTodo.title},
+			#{createTodo.description},
+			false,
+			CURRENT_DATE
+		);
+	</insert>
 </mapper>

@@ -12,25 +12,25 @@
 			<input type="hidden" name="id" th:value="*{id}">
 			<!-- Created At -->
 			<div class="mb-3">
-				<label for="createdAt" class="form-label">Created At</label>
-				<p class="form-control-plaintext fw-bold" id="createdAt" th:text="*{createdAt}"></p>
+				<label for="createdAt" class="form-label fs-3 fw-bold">Created At</label>
+				<p class="form-control-plaintext fs-5 fw-bold" id="createdAt" th:text="*{createdAt}"></p>
 			</div>
 			<!-- Title -->
 			<div class="mb-3">
-				<label for="title" class="form-label">Title</label>
+				<label for="title" class="form-label fs-3 fw-bold">Title</label>
 				<input type="text" class="form-control" id="title" name="title" th:value="*{title}" required>
 			</div>
 
 			<!-- Description -->
 			<div class="mb-3">
-				<label for="description" class="form-label">Description</label>
+				<label for="description" class="form-label fs-3 fw-bold">Description</label>
 				<textarea class="form-control" id="description" name="description" rows="3"
 					th:text="*{description}"></textarea>
 			</div>
 
 			<!-- Completed -->
 			<div class="mb-3">
-				<label for="completed" class="form-label">Completed</label>
+				<label for="completed" class="form-label fs-3 fw-bold">Completed</label>
 				<select class="form-select" id="completed" name="isCompleted">
 					<option value="true" th:selected="*{isCompleted}">完了</option>
 					<option value="false" th:selected="!*{isCompleted}">未完了</option>

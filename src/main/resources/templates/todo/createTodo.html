@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<head>
+	<title>Create Todo Page</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<form th:action="@{/todo/create}" method="post">
+			<!-- Title -->
+			<div class="mb-3">
+				<label for="title" class="form-label fs-3 fw-bold">Title</label>
+				<input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+			</div>
+
+			<!-- Description -->
+			<div class="mb-3">
+				<label for="description" class="form-label fs-3 fw-bold">Description</label>
+				<textarea class="form-control" id="description" name="description" rows="3"
+					placeholder="Enter description"></textarea>
+			</div>
+
+			<div class="mt-4">
+				<button type="submit" class="btn btn-primary px-4 py-2">作成</button>
+				<button type="button" class="btn btn-secondary px-4 py-2" onclick="history.back()">戻る</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
