@@ -5,9 +5,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.example.demo.repository.entity.TodoEntity;
-import com.example.demo.repository.form.CreateTodoForm;
-import com.example.demo.repository.form.TodoForm;
+import com.example.demo.model.entity.TodoEntity;
+import com.example.demo.model.form.CreateTodoForm;
+import com.example.demo.model.form.TodoForm;
+
 
 @Mapper
 public interface TodoMapper {

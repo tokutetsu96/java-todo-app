@@ -23,12 +23,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="todo : ${todos}">
-					<td th:text="${todo.id}"></td>
-					<td th:text="${todo.title}"></td>
-					<td th:text="${todo.isCompleted != null ? (todo.isCompleted ? '完了' : '未完了') : '未選択'}"></td>
-					<td th:text="${todo.createdAt}"></td>
-					<td th:text="${todo.updatedAt}"></td>
+				<tr th:each="todo : ${todos}" th:object="${todo}">
+					<td th:text="*{id}"></td>
+					<td th:text="*{title}"></td>
+					<td th:text="*{isCompleted != null ? (isCompleted ? '完了' : '未完了') : '未選択'}"></td>
+					<td th:text="*{createdAt}"></td>
+					<td th:text="*{updatedAt}"></td>
 					<td>
 						<a class="btn btn-primary btn-sm px-4 py-2" th:href="@{/todo/edit/{id}(id=${todo.id})}">
 							編集

@@ -1,4 +1,4 @@
-package com.example.demo.repository.form;
+package com.example.demo.model.form;
 
 import lombok.Data;
 

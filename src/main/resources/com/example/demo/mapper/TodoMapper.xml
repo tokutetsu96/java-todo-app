@@ -4,7 +4,7 @@
 <mapper namespace="com.example.demo.mapper.TodoMapper">
 
 	<resultMap id="TodoResultMap"
-		type="com.example.demo.repository.entity.TodoEntity">
+		type="com.example.demo.model.entity.TodoEntity">
 		<id property="id" column="id" />
 		<result property="title" column="title" />
 		<result property="isCompleted" column="is_completed" />
@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<resultMap id="EditTodoResultMap"
-		type="com.example.demo.repository.form.TodoForm">
+		type="com.example.demo.model.form.TodoForm">
 		<id property="id" column="id" />
 		<result property="title" column="title" />
 		<result property="description" column="description" />

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>ログイン</title>
+	<!-- Bootstrap CSS from WebJars -->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h1 class="text-center mt-5">ログイン</h1>
+				<form th:action="@{/login}" method="post" class="mt-4">
+					<div class="mb-3">
+						<label for="username" class="form-label">ユーザー名</label>
+						<input type="text" id="username" name="username" class="form-control" placeholder="ユーザー名を入力">
+					</div>
+					<div class="mb-3">
+						<label for="password" class="form-label">パスワード</label>
+						<input type="password" id="password" name="password" class="form-control"
+							placeholder="パスワードを入力">
+					</div>
+					<div class="d-grid">
+						<button type="submit" class="btn btn-primary">ログイン</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

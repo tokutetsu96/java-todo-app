@@ -2,9 +2,10 @@ package com.example.demo.service;
 
 import java.util.List;
 
-import com.example.demo.repository.entity.TodoEntity;
-import com.example.demo.repository.form.CreateTodoForm;
-import com.example.demo.repository.form.TodoForm;
+import com.example.demo.model.entity.TodoEntity;
+import com.example.demo.model.form.CreateTodoForm;
+import com.example.demo.model.form.TodoForm;
+
 
 public interface TodoService {
 

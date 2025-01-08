@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.repository.entity.TodoEntity;
-import com.example.demo.repository.form.CreateTodoForm;
-import com.example.demo.repository.form.TodoForm;
+import com.example.demo.model.entity.TodoEntity;
+import com.example.demo.model.form.CreateTodoForm;
+import com.example.demo.model.form.TodoForm;
 import com.example.demo.service.TodoService;
 
 /**
@@ -53,7 +53,13 @@ public class TodoController {
 		model.addAttribute("todo", todo);
 		return "todo/editTodo";
 	}
-
+	
+	/**
+	 * 指定されたIDのTodoを削除します。
+	 * 
+	 * @param id
+	 * @return todo.html
+	 */
 	@PostMapping("/delete/{id}")
 	public String deleteTodo(@PathVariable Long id) {
 		todoService.deleteTodo(id);
@@ -72,16 +78,33 @@ public class TodoController {
 		return "redirect:/todo";
 	}
 	
+	/**
+	 * Todo作成ページを表示します。
+	 * 
+	 * @return createTodo.html
+	 */
 	@GetMapping("/create")
 	public String createTodoPage() {
 		return "/todo/createTodo";
 	}
 	
+	/**
+	 * TodoをDBに登録します。
+	 * 
+	 * @param CareateTodoForm
+	 * 
+	 * @return todo.html
+	 */
 	@PostMapping("/create")
 	public String createTodo(@ModelAttribute CreateTodoForm form) {
 		
 		todoService.insertTodo(form);
 		
 		return "redirect:/todo";
+	}
+	
+	@GetMapping("/allTodo")
+	public String showAllTodoPage() {
+		return "/todo/allTodo";
 	}
 }
