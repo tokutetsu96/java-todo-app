@@ -19,7 +19,7 @@ public class LoginUserDetails implements UserDetails {
 		this.password = user.getPassword();
 		this.username = user.getUsername();
 		this.authorities = Arrays.stream(user.getRole().split(","))
-				.map(role -> new SimpleGrantedAuthority(role))
+				.map(role -> new SimpleGrantedAuthority(role.trim()))
 				.toList();
 	}
 
@@ -40,26 +40,25 @@ public class LoginUserDetails implements UserDetails {
 
 		return username;
 	}
-	
+
 	@Override
 	public boolean isAccountNonExpired() {
-	    return true;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-	    return true;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-	    return true;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-	    return true;
+		return true;
 	}
-
 
 }
