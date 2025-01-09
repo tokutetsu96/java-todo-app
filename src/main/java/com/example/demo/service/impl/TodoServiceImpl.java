@@ -48,4 +48,12 @@ public class TodoServiceImpl implements TodoService {
 		
 		todoMapper.insertOneTodo(form);
 	}
+	
+	@Override
+	public List<TodoEntity> getAllTodos() {
+		
+		List<TodoEntity> allTodos = todoMapper.getAllTodos();
+		return allTodos;
+		
+	}
 }

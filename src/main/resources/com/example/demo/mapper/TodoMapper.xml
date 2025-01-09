@@ -78,4 +78,16 @@
 			CURRENT_DATE
 		);
 	</insert>
+	<select id="getAllTodos" resultMap="TodoResultMap">
+		SELECT
+			id,
+			title,
+			is_completed,
+			created_at,
+			updated_at
+		FROM
+			todo
+		ORDER BY
+			id
+	</select>
 </mapper>

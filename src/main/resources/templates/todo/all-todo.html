@@ -3,13 +3,12 @@
 	layout:decorate="~{layout/layout}">
 
 <head>
-	<title>Todo Page</title>
-	<script th:src="@{/js/todo.js}" defer></script>
+	<title>All Todo Page</title>
 </head>
 
 <body>
 	<div layout:fragment="content">
-		<h1>Todo List</h1>
+		<h1>All Todo List</h1>
 		<table class="table table-hover mt-4">
 			<thead>
 				<tr>
@@ -18,29 +17,15 @@
 					<th scope="col">Completed</th>
 					<th scope="col">CreatedAt</th>
 					<th scope="col">UpdatedAt</th>
-					<th scope="col">Edit</th>
-					<th scope="col">Delete</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="todo : ${todos}" th:object="${todo}">
+				<tr th:each="allTodos : ${allTodos}" th:object="${allTodos}">
 					<td th:text="*{id}"></td>
 					<td th:text="*{title}"></td>
 					<td th:text="*{isCompleted != null ? (isCompleted ? '完了' : '未完了') : '未選択'}"></td>
 					<td th:text="*{createdAt}"></td>
 					<td th:text="*{updatedAt}"></td>
-					<td>
-						<a class="btn btn-primary btn-sm px-4 py-2" th:href="@{/todo/edit/{id}(id=${todo.id})}">
-							EDIT
-						</a>
-					</td>
-					<td>
-						<form th:action="@{/todo/delete/{id}(id=${todo.id})}" method="post">
-							<button class="btn btn-danger btn-sm px-4 py-2" type="submit">
-								DELETE
-							</button>
-						</form>
-					</td>
 				</tr>
 			</tbody>
 		</table>

@@ -18,4 +18,6 @@ public interface TodoService {
 	public void deleteTodo(Long id);
 
 	public void insertTodo(CreateTodoForm form);
+
+	public List<TodoEntity> getAllTodos();
 }

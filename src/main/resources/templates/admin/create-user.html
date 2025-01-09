@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<head>
+	<title>Create User Page</title>
+</head>
+
+<body class="bg-light">
+	<div layout:fragment="content" class="container my-5">
+		<div class="card shadow">
+			<div class="card-header bg-dark text-white text-center">
+				<h2 class="mb-0">Create User</h2>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/admin/create-user}" th:object="${createUserForm}" method="post">
+					<!-- Username -->
+					<div class="mb-4">
+						<label for="username" class="form-label fs-5 fw-bold">Username</label>
+						<input type="text" class="form-control form-control-lg" th:field="*{username}"
+							placeholder="YAMADA TAROU">
+					</div>
+
+					<!-- Password -->
+					<div class="mb-4">
+						<label for="password" class="form-label fs-5 fw-bold">Password</label>
+						<input type="password" class="form-control form-control-lg" th:field="*{password}"
+							placeholder="Enter password">
+					</div>
+
+					<!-- Role -->
+					<div class="mb-4">
+						<label for="role" class="form-label fs-5 fw-bold">Role</label>
+						<select class="form-select form-select-lg" th:field="*{role}">
+							<option value="">Select role</option>
+							<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+							<option value="ROLE_USER">ROLE_USER</option>
+						</select>
+					</div>
+
+					<!-- Buttons -->
+					<div class="mt-5 d-flex">
+						<button type="submit" class="btn btn-primary btn-lg px-4 mx-2">CREATE</button>
+						<button type="button" class="btn btn-secondary btn-lg px-4"
+							onclick="history.back()">BACK</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

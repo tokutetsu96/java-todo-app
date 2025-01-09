@@ -23,4 +23,6 @@ public interface TodoMapper {
 
 	public void insertOneTodo(@Param("createTodo") CreateTodoForm form);
 
+	public List<TodoEntity> getAllTodos();
+
 }

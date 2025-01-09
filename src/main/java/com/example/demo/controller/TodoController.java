@@ -51,7 +51,7 @@ public class TodoController {
 	public String showTodoEditPage(@PathVariable Long id, Model model) {
 		TodoForm todo = todoService.getOneTodo(id);
 		model.addAttribute("todo", todo);
-		return "todo/editTodo";
+		return "todo/edit-todo";
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class TodoController {
 	 */
 	@GetMapping("/create")
 	public String createTodoPage() {
-		return "/todo/createTodo";
+		return "/todo/create-todo";
 	}
 	
 	/**
@@ -104,7 +104,10 @@ public class TodoController {
 	}
 	
 	@GetMapping("/allTodo")
-	public String showAllTodoPage() {
-		return "/todo/allTodo";
+	public String showAllTodoPage(Model model) {
+		
+		List<TodoEntity> allTodos = todoService.getAllTodos();
+		model.addAttribute("allTodos", allTodos);
+		return "/todo/all-todo";
 	}
 }

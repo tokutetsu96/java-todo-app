@@ -2,32 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>ログイン</title>
-	<!-- Bootstrap CSS from WebJars -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+	<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+
+	<title>ログイン</title>
 </head>
 
 <body>
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
-				<h1 class="text-center mt-5">ログイン</h1>
-				<form th:action="@{/login}" method="post" class="mt-4">
-					<div class="mb-3">
-						<label for="username" class="form-label">ユーザー名</label>
-						<input type="text" id="username" name="username" class="form-control" placeholder="ユーザー名を入力">
-					</div>
-					<div class="mb-3">
-						<label for="password" class="form-label">パスワード</label>
-						<input type="password" id="password" name="password" class="form-control"
-							placeholder="パスワードを入力">
-					</div>
-					<div class="d-grid">
-						<button type="submit" class="btn btn-primary">ログイン</button>
-					</div>
-				</form>
-			</div>
+		<div class="wrapper">
+			<form th:action="@{/login}" method="post" name="Login_Form" class="form-signin">
+				<h3 class="form-signin-heading">Welcome Back!<br>Please Sign In</h3>
+				<hr class="colorgraph"><br>
+
+				<input type="text" class="form-control" id="username" name="username" placeholder="Username" required=""
+					autofocus="" />
+				<input type="password" class="form-control" id="password" name="password" placeholder="Password"
+					required="" />
+
+				<div class="text-center">
+					<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login"
+						type="Submit">Login</button>
+				</div>
+			</form>
 		</div>
 	</div>
 
