@@ -19,6 +19,9 @@
 						<label for="username" class="form-label fs-5 fw-bold">Username</label>
 						<input type="text" class="form-control form-control-lg" th:field="*{username}"
 							placeholder="YAMADA TAROU">
+						<!-- Error message for username -->
+						<div class="text-danger mt-2" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+						</div>
 					</div>
 
 					<!-- Password -->
@@ -26,16 +29,21 @@
 						<label for="password" class="form-label fs-5 fw-bold">Password</label>
 						<input type="password" class="form-control form-control-lg" th:field="*{password}"
 							placeholder="Enter password">
+						<!-- Error message for password -->
+						<div class="text-danger mt-2" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+						</div>
 					</div>
 
 					<!-- Role -->
 					<div class="mb-4">
 						<label for="role" class="form-label fs-5 fw-bold">Role</label>
 						<select class="form-select form-select-lg" th:field="*{role}">
-							<option value="">Select role</option>
+							<option value="">Select Role</option>
 							<option value="ROLE_ADMIN">ROLE_ADMIN</option>
 							<option value="ROLE_USER">ROLE_USER</option>
 						</select>
+						<!-- Error message for role -->
+						<div class="text-danger mt-2" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
 					</div>
 
 					<!-- Buttons -->

@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 public class CreateUserForm {
 	
-	@NotEmpty
+	@NotEmpty(message = "username is required.")
 	private String username;
-	@NotEmpty
+	@NotEmpty(message = "password is required.")
 	private String password;
-	@NotEmpty
+	@NotEmpty(message = "role is required.")
 	private String role;
 
 }

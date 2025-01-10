@@ -81,7 +81,7 @@ public class TodoController {
 	/**
 	 * Todo作成ページを表示します。
 	 * 
-	 * @return createTodo.html
+	 * @return create-todo.html
 	 */
 	@GetMapping("/create")
 	public String createTodoPage() {
@@ -103,6 +103,11 @@ public class TodoController {
 		return "redirect:/todo";
 	}
 	
+	/**
+	 * AllTodo作成ページを表示します。
+	 * 
+	 * @return all-todo.html
+	 */
 	@GetMapping("/allTodo")
 	public String showAllTodoPage(Model model) {
 		
