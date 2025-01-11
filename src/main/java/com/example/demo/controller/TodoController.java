@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.model.entity.TodoEntity;
+import com.example.demo.model.dto.HomeTodoDto;
 import com.example.demo.model.form.CreateTodoForm;
 import com.example.demo.model.form.TodoForm;
 import com.example.demo.service.TodoService;
@@ -35,7 +35,7 @@ public class TodoController {
 	 */
 	@GetMapping
 	public String showTodoPage(Model model) {
-		List<TodoEntity> todoList = todoService.getTodos();
+		List<HomeTodoDto> todoList = todoService.getTodos();
 		model.addAttribute("todos", todoList);
 		return "todo/todo";
 	}
@@ -111,7 +111,7 @@ public class TodoController {
 	@GetMapping("/allTodo")
 	public String showAllTodoPage(Model model) {
 		
-		List<TodoEntity> allTodos = todoService.getAllTodos();
+		List<HomeTodoDto> allTodos = todoService.getAllTodos();
 		model.addAttribute("allTodos", allTodos);
 		return "/todo/all-todo";
 	}

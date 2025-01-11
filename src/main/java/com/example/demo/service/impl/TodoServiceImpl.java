@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.TodoMapper;
-import com.example.demo.model.entity.TodoEntity;
+import com.example.demo.model.dto.HomeTodoDto;
 import com.example.demo.model.form.CreateTodoForm;
 import com.example.demo.model.form.TodoForm;
 import com.example.demo.service.TodoService;
@@ -18,9 +18,9 @@ public class TodoServiceImpl implements TodoService {
 	private TodoMapper todoMapper;
 
 	@Override
-	public List<TodoEntity> getTodos() {
+	public List<HomeTodoDto> getTodos() {
 
-		List<TodoEntity> todos = todoMapper.getTodos();
+		List<HomeTodoDto> todos = todoMapper.getTodos();
 		return todos;
 	}
 
@@ -50,10 +50,15 @@ public class TodoServiceImpl implements TodoService {
 	}
 	
 	@Override
-	public List<TodoEntity> getAllTodos() {
+	public List<HomeTodoDto> getAllTodos() {
 		
-		List<TodoEntity> allTodos = todoMapper.getAllTodos();
+		List<HomeTodoDto> allTodos = todoMapper.getAllTodos();
 		return allTodos;
-		
+	}
+	
+	@Override
+	public List<HomeTodoDto> searchTodos(String query) {
+		List<HomeTodoDto> todos = todoMapper.searchTodos(query);
+		return todos;
 	}
 }

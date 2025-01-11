@@ -90,4 +90,20 @@
 		ORDER BY
 			id
 	</select>
+	
+	<select id="searchTodos" resultMap="TodoResultMap">
+		SELECT
+			id,
+			title,
+			is_completed,
+			created_at,
+			updated_at
+		FROM
+			todo
+		WHERE
+			title LIKE CONCAT('%', #{query}, '%')
+		and is_completed = false
+		ORDER BY
+			id
+	</select>
 </mapper>

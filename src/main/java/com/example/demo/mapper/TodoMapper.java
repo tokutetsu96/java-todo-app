@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.example.demo.model.entity.TodoEntity;
+import com.example.demo.model.dto.HomeTodoDto;
 import com.example.demo.model.form.CreateTodoForm;
 import com.example.demo.model.form.TodoForm;
 
@@ -13,7 +13,7 @@ import com.example.demo.model.form.TodoForm;
 @Mapper
 public interface TodoMapper {
 
-	public List<TodoEntity> getTodos();
+	public List<HomeTodoDto> getTodos();
 
 	public TodoForm getEditTodo(Long id);
 
@@ -23,6 +23,8 @@ public interface TodoMapper {
 
 	public void insertOneTodo(@Param("createTodo") CreateTodoForm form);
 
-	public List<TodoEntity> getAllTodos();
+	public List<HomeTodoDto> getAllTodos();
+
+	public List<HomeTodoDto> searchTodos(String query);
 
 }
