@@ -7,15 +7,6 @@
 		type="com.example.demo.model.entity.TodoEntity">
 		<id property="id" column="id" />
 		<result property="title" column="title" />
-		<result property="isCompleted" column="is_completed" />
-		<result property="createdAt" column="created_at" />
-		<result property="updatedAt" column="updated_at" />
-	</resultMap>
-	
-	<resultMap id="EditTodoResultMap"
-		type="com.example.demo.model.form.TodoForm">
-		<id property="id" column="id" />
-		<result property="title" column="title" />
 		<result property="description" column="description" />
 		<result property="isCompleted" column="is_completed" />
 		<result property="createdAt" column="created_at" />
@@ -37,7 +28,7 @@
 			id
 	</select>
 	
-	<select id="getEditTodo" resultMap="EditTodoResultMap">
+	<select id="getEditTodo" resultMap="TodoResultMap">
 		SELECT
 			*
 		FROM
