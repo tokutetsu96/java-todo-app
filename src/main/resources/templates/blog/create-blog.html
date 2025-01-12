@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<head>
+	<title>Create Blog Page</title>
+</head>
+
+<body class="bg-light">
+	<div layout:fragment="content" class="container my-5">
+		<div class="card shadow">
+			<div class="card-header bg-dark text-white text-center">
+				<h2 class="mb-0">Create Blog</h2>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/blog/create}" th:object="${blogForm}" method="post">
+					<!-- Title -->
+					<div class="mb-4">
+						<label for="title" class="form-label fs-5 fw-bold">Title</label>
+						<input type="text" class="form-control form-control-lg" th:field="*{title}"
+							placeholder="Enter blog title" required>
+					</div>
+
+					<!-- Content -->
+					<div class="mb-4">
+						<label for="content" class="form-label fs-5 fw-bold">Content</label>
+						<textarea class="form-control form-control-lg" th:field="*{content}" rows="6"
+							placeholder="Enter blog content" required></textarea>
+					</div>
+
+					<!-- Author -->
+					<div class="mb-4">
+						<label for="author" class="form-label fs-5 fw-bold">Author</label>
+						<input type="text" class="form-control form-control-lg" th:field="*{author}"
+							placeholder="Enter author name" readonly>
+					</div>
+
+					<!-- Buttons -->
+					<div class="mt-5 d-flex">
+						<button type="submit" class="btn btn-primary btn-lg px-4 mx-2">CREATE</button>
+						<button type="button" class="btn btn-secondary btn-lg px-4" onclick="history.back()">BACK</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

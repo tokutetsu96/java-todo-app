@@ -33,7 +33,7 @@ public class TodoController {
 	 * @param model
 	 * @return todo.html
 	 */
-	@GetMapping
+	@GetMapping("/home")
 	public String showTodoPage(Model model) {
 		List<HomeTodoDto> todoList = todoService.getTodos();
 		model.addAttribute("todos", todoList);
@@ -63,7 +63,7 @@ public class TodoController {
 	@PostMapping("/delete/{id}")
 	public String deleteTodo(@PathVariable Long id) {
 		todoService.deleteTodo(id);
-		return "redirect:/todo";
+		return "redirect:/todo/home";
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class TodoController {
 	@PostMapping("/update")
 	public String updateTodo(@ModelAttribute TodoForm todoForm) {
 		todoService.updateTodo(todoForm);
-		return "redirect:/todo";
+		return "redirect:/todo/home";
 	}
 	
 	/**
@@ -100,7 +100,7 @@ public class TodoController {
 		
 		todoService.insertTodo(form);
 		
-		return "redirect:/todo";
+		return "redirect:/todo/home";
 	}
 	
 	/**

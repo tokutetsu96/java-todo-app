@@ -13,13 +13,16 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link " aria-current="page" href="#" th:href="@{/todo}">Todo</a>
+						<a class="nav-link" aria-current="page" href="#" th:href="@{/todo/home}">Todo</a>
 					</li>
 					<li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
 						<a class="nav-link" th:href="@{/admin/create-user}">Create User</a>
 					</li>
 				</ul>
-				<div class="ms-auto">
+				<div class="ms-auto d-flex align-items-center">
+					<!-- ユーザー名を表示 -->
+					<p class="text-white mb-0 me-3 fw-bold fs-4" sec:authentication="name"></p>
+					<!-- ログアウトボタン -->
 					<form th:action="@{/logout}" method="post" class="d-flex">
 						<button type="submit" class="btn btn-outline-light fw-bold">Logout</button>
 					</form>

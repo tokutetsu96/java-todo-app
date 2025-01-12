@@ -26,7 +26,7 @@ public class SecurityConfig {
 		http
 				.formLogin(login -> login //  フォーム認証を使う
 						.loginPage("/login")
-						.defaultSuccessUrl("/todo", true)
+						.defaultSuccessUrl("/todo/home", true)
 						.permitAll()) //  フォーム認証画面は認証不要
 				.logout(logout -> logout
 						.logoutUrl("/logout") // ログアウトURL
