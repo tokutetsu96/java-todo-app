@@ -1,26 +1,45 @@
 @charset "UTF-8";
 
+html, body {
+    height: 100%; /* ページ全体の高さを指定 */
+    margin: 0; /* 余白を削除 */
+    display: flex;
+    flex-direction: column; /* フレックスボックスを縦方向に設定 */
+}
+
 /* ヘッダー固定 */
 .header {
 	position: fixed;
 	top: 0;
+	left: 0;
 	width: 100%;
+	height: 64px;
+	background-color: #333;
 	color: #fff;
 	z-index: 1000;
 	border-bottom: 1px solid #ddd;
 	text-align: center;
-	height: 64px;
 }
 
-/* フッター固定 */
 .footer {
-	position: fixed;
+	background-color: #333;
 	bottom: 0;
-	width: 100%;
 	color: white;
-	border-top: 1px solid #ddd;
 	text-align: center;
 	padding: 10px 0;
-	z-index: 1000;
+	position: relative;
 }
 
+.container {
+	padding-top: 64px;
+	padding-bottom: 60px;
+}
+
+.container-fluid {
+	flex: 1;
+}
+
+.container-fluid main {
+	padding-top: 64px;
+	padding-bottom: 60px;
+}

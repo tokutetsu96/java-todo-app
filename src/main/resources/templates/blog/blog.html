@@ -4,13 +4,36 @@
 
 <head>
 	<title>Blog Page</title>
+	<link rel="stylesheet" href="/css/blog.css">
 </head>
 
 <body>
 	<div layout:fragment="content">
 		<h1 class="text-center text-white bg-secondary py-3 rounded">Blog List</h1>
+		<div class="container my-5">
+			<div class="row row-cols-1 row-cols-md-3 g-4">
+				<!-- Blogカードの繰り返し -->
+				<div class="col" th:each="blog : ${blogs}">
+					<!-- カード全体をリンクで囲む -->
+					<a th:href="@{/blog/{id}(id=${blog.id})}" class="text-decoration-none text-dark">
+						<div class="card h-100 shadow">
+							<!-- 画像 -->
+							<img th:src="${blog.imagePath}" class="card-img-top" alt="Blog Image">
+							<div class="card-body">
+								<!-- タイトル -->
+								<h3 class="card-title" th:text="${blog.title}"></h3>
+								<!-- 作成日 -->
+								<p class="card-text text-muted" th:text="'Created At: ' + ${blog.createdAt}"></p>
+								<!-- 作成者 -->
+								<p class="card-text" th:text="'Author: ' + ${blog.author}"></p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<!-- 繰り返し終了 -->
+			</div>
+		</div>
 	</div>
 </body>
-
 
 </html>

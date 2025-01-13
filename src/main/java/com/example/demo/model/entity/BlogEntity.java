@@ -11,6 +11,7 @@ public class BlogEntity {
 	private String title;
 	private String content;
 	private String author;
+	private String imagePath;
 	private LocalDate createdAt;
 	private LocalDate updatedAt;
 }

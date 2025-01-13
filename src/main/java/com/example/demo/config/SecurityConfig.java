@@ -34,7 +34,7 @@ public class SecurityConfig {
 						.invalidateHttpSession(true) // セッションを無効化
 						.deleteCookies("JSESSIONID")) // クッキーを削除
 				.authorizeHttpRequests(authz -> authz
-						.requestMatchers("/css/**", "/js/**", "/webjars/**", "/").permitAll()
+						.requestMatchers("/css/**", "/js/**", "/webjars/**", "/", "/uploads/**").permitAll()
 						.requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
 						.anyRequest().authenticated() //  他のURLはログイン後アクセス可能
 				);

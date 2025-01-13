@@ -8,21 +8,42 @@
 		<result property="title" column="title" />
 		<result property="content" column="content" />
 		<result property="author" column="author" />
+		<result property="imagePath" column="image_path" />
 		<result property="createdAt" column="created_at" />
 		<result property="updatedAt" column="updated_at" />
 	</resultMap>
+	
+	<select id="getAllBlogs" resultMap="BlogResultMap">
+		SELECT
+			*
+		FROM
+			blog
+		ORDER BY
+			created_at desc
+	</select>
+	
+	<select id="getBlogById" resultMap="BlogResultMap">
+		SELECT
+			*
+		FROM
+			blog
+		WHERE
+			id = #{id}
+	</select>
 	
 	<insert id="createOneBlog">
 		INSERT INTO blog (
 			title,
 			content,
 			author,
+			image_path,
 			created_at
 		)
 		VALUES (
 			#{title},
 			#{content},
 			#{author},
+			#{imagePath},
 			CURRENT_DATE
 	    );
 	</insert>

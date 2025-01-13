@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.card-img-top {
+	object-fit: cover;
+	width: 100%;
+	height: 200px;
+}
+
+.card {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border-radius: 10px;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ブログ画像のスタイル */
+.blog-detail img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 本文スタイル */
+.blog-content {
+	line-height: 1.8;
+	font-size: 1.1rem;
+}
+
+/* 画像サイズ固定 */
+.fixed-size-image {
+	width: 800px;
+	height: 600px;
+	object-fit: cover;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+}
