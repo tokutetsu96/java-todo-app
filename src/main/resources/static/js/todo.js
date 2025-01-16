@@ -3,8 +3,8 @@
 $(document).ready(function() {
 	// 検索ボタンのクリックイベント
 	$("#search-button").click(function() {
-		const query = $("#search-input").val(); // 検索条件を取得
-		const apiUrl = `/api/todo/search?query=${query}`; // REST APIのURL
+		const query = $("#search-input").val();
+		const apiUrl = `/api/todo/search?query=${query}`;
 
 		// REST API呼び出し
 		$.ajax({

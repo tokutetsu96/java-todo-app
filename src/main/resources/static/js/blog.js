@@ -17,4 +17,43 @@ $(document).ready(function() {
 			reader.readAsDataURL(input.files[0]);
 		}
 	});
+
+
+	$("#search-button").click(function() {
+		const query = $("#search-input").val();
+		const apiUrl = `/api/blog/search?query=${query}`;
+
+		// REST API呼び出し
+		$.ajax({
+			url: apiUrl,
+			type: "GET",
+			dataType: "json",
+			success: function(data) {
+				const blogCardContainer = $("#blog-card").parent(); // 親要素を取得
+				blogCardContainer.empty();
+
+				data.forEach(blog => {
+					const blogCard = `
+						<div class="col" id="blog-card">
+							<a href="/blog/${blog.id}" class="text-decoration-none text-dark">
+								<div class="card h-100 shadow">
+									<img src="${blog.imagePath}" class="card-img-top" alt="Blog Image">
+									<div class="card-body">
+										<h3 class="card-title">${blog.title}</h3>
+										<p class="card-text text-muted">Created At: ${blog.createdAt}</p>
+										<p class="card-text">Author: ${blog.author}</p>
+									</div>
+								</div>
+							</a>
+ 						</div>
+				`;
+					blogCardContainer.append(blogCard);
+				});
+			},
+			error: function(_, status, error) {
+				console.error("通信エラー:", status, error);
+				alert("データの取得中にエラーが発生しました。");
+			}
+		});
+	});
 });

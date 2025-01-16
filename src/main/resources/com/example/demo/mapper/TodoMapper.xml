@@ -12,6 +12,16 @@
 		<result property="createdAt" column="created_at" />
 		<result property="updatedAt" column="updated_at" />
 	</resultMap>
+	
+	<resultMap id="TodoFormResultMap"
+		type="com.example.demo.model.form.TodoForm">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="description" column="description" />
+		<result property="isCompleted" column="is_completed" />
+		<result property="createdAt" column="created_at" />
+		<result property="updatedAt" column="updated_at" />
+	</resultMap>
 
 	<select id="getTodos" resultMap="TodoResultMap">
 		SELECT
@@ -28,7 +38,7 @@
 			id
 	</select>
 	
-	<select id="getEditTodo" resultMap="TodoResultMap">
+	<select id="getEditTodo" resultMap="TodoFormResultMap">
 		SELECT
 			*
 		FROM

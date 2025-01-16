@@ -3,7 +3,8 @@
 
 <mapper namespace="com.example.demo.mapper.BlogMapper">
 
-	<resultMap id="BlogResultMap" type="com.example.demo.model.entity.BlogEntity">
+	<resultMap id="BlogResultMap"
+		type="com.example.demo.model.entity.BlogEntity">
 		<id property="id" column="id" />
 		<result property="title" column="title" />
 		<result property="content" column="content" />
@@ -12,7 +13,7 @@
 		<result property="createdAt" column="created_at" />
 		<result property="updatedAt" column="updated_at" />
 	</resultMap>
-	
+
 	<select id="getAllBlogs" resultMap="BlogResultMap">
 		SELECT
 			*
@@ -21,7 +22,7 @@
 		ORDER BY
 			created_at desc
 	</select>
-	
+
 	<select id="getBlogById" resultMap="BlogResultMap">
 		SELECT
 			*
@@ -30,21 +31,32 @@
 		WHERE
 			id = #{id}
 	</select>
-	
+
 	<insert id="createOneBlog">
 		INSERT INTO blog (
-			title,
-			content,
-			author,
-			image_path,
-			created_at
+		title,
+		content,
+		author,
+		image_path,
+		created_at
 		)
 		VALUES (
-			#{title},
-			#{content},
-			#{author},
-			#{imagePath},
-			CURRENT_DATE
-	    );
+		#{title},
+		#{content},
+		#{author},
+		#{imagePath},
+		CURRENT_DATE
+		);
 	</insert>
+
+	<select id="searchBlogs" resultMap="BlogResultMap">
+		SELECT
+			*
+		FROM
+			blog
+		WHERE
+			title LIKE CONCAT('%', #{query}, '%')
+		ORDER BY
+			created_at desc
+	</select>
 </mapper>
