@@ -47,8 +47,12 @@
 
 					<!-- Buttons -->
 					<div class="mt-5 d-flex">
-						<button type="submit" class="btn btn-success btn-lg px-4 mx-2">UPDATE</button>
-						<button type="button" class="btn btn-secondary btn-lg px-4" onclick="history.back()">BACK</button>
+						<button type="submit" class="btn btn-success btn-lg px-4 mx-2">Update</button>
+						<form th:action="@{/todo/delete/{id}(id=${todo.id})}" method="post">
+							<button class="btn btn-danger btn-lg px-4 mx-2" type="submit">Delete</button>
+						</form>
+						<button type="button" class="btn btn-secondary btn-lg px-4" onclick="history.back()">Back</button>
+
 					</div>
 				</form>
 			</div>

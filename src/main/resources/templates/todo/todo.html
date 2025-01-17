@@ -11,7 +11,6 @@
 	<div layout:fragment="content">
 		<h1 class="text-center text-white bg-secondary py-3 rounded">Todo Home</h1>
 
-		<!-- 検索フォーム -->
 		<div class="input-group mb-3">
 			<input type="text" id="search-input" class="form-control" placeholder="Search Todos">
 			<button id="search-button" class="btn btn-primary">Search</button>
@@ -26,7 +25,7 @@
 					<th scope="col">CreatedAt</th>
 					<th scope="col">UpdatedAt</th>
 					<th scope="col">Edit</th>
-					<th scope="col">Delete</th>
+					<th scope="col">Complete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,11 +36,11 @@
 					<td th:text="*{createdAt}"></td>
 					<td th:text="*{updatedAt}"></td>
 					<td>
-						<a class="btn btn-primary btn-sm px-4 py-2" th:href="@{/todo/edit/{id}(id=${todo.id})}">EDIT</a>
+						<a class="btn btn-primary btn-sm px-4 py-2" th:href="@{/todo/edit/{id}(id=${todo.id})}">Edit</a>
 					</td>
 					<td>
-						<form th:action="@{/todo/delete/{id}(id=${todo.id})}" method="post">
-							<button class="btn btn-danger btn-sm px-4 py-2" type="submit">DELETE</button>
+						<form th:action="@{/todo/complete/{id}(id=${todo.id})}" method="post" class="complete-form">
+							<button class="btn btn-danger btn-sm px-4 py-2 complete-button" type="submit">Complete</button>
 						</form>
 					</td>
 				</tr>

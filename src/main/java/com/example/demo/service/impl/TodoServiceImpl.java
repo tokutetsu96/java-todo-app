@@ -59,4 +59,9 @@ public class TodoServiceImpl implements TodoService {
     List<HomeTodoDto> todos = todoMapper.searchTodos(query);
     return todos;
   }
+
+  @Override
+  public void updateCompleteTodoById(Long id) {
+    todoMapper.updateCompleteTodoById(id);
+  };
 }

@@ -37,4 +37,9 @@ public class BlogServiceImpl implements BlogService {
     return blogs;
   };
 
+  @Override
+  public void deleteBlogById(Long id) {
+    blogMapper.deleteBlogByid(id);
+  };
+
 }

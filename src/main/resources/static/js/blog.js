@@ -21,6 +21,9 @@ $(document).ready(function() {
 
 	$("#search-button").click(function() {
 		const query = $("#search-input").val();
+		if (!query) {
+			return;
+		}
 		const apiUrl = `/api/blog/search?query=${query}`;
 
 		// REST API呼び出し
@@ -29,7 +32,7 @@ $(document).ready(function() {
 			type: "GET",
 			dataType: "json",
 			success: function(data) {
-				const blogCardContainer = $("#blog-card").parent(); // 親要素を取得
+				const blogCardContainer = $("#blog-card").parent();
 				blogCardContainer.empty();
 
 				data.forEach(blog => {
@@ -56,4 +59,16 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+    $(document).ready(function () {
+        var message = /*[[${message}]]*/ ''; // Thymeleafでmessageを埋め込む
+        if (message.trim().length > 0) {
+            $('#modalMessage').text(message);
+            $('#messageModal').fadeIn();
+        }
+
+        $('#closeModal').on('click', function () {
+            $('#messageModal').fadeOut();
+        });
+    });
 });

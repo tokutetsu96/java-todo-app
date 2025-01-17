@@ -113,4 +113,10 @@ public class TodoController {
     model.addAttribute("allTodos", allTodos);
     return "/todo/all-todo";
   }
+
+  @PostMapping("/complete/{id}")
+  public String updateCompleteTodo(@PathVariable Long id) {
+    todoService.updateCompleteTodoById(id);
+    return "redirect:/todo/home";
+  }
 }

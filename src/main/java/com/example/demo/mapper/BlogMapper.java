@@ -15,4 +15,6 @@ public interface BlogMapper {
   public BlogEntity getBlogById(Long id);
 
   public List<BlogEntity> searchBlogs(String query);
+
+  public void deleteBlogByid(Long id);
 }

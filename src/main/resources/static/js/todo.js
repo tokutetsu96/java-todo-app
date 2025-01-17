@@ -1,12 +1,11 @@
 'use strict';
 
 $(document).ready(function() {
-	// 検索ボタンのクリックイベント
+
 	$("#search-button").click(function() {
 		const query = $("#search-input").val();
 		const apiUrl = `/api/todo/search?query=${query}`;
 
-		// REST API呼び出し
 		$.ajax({
 			url: apiUrl,
 			type: "GET",
@@ -42,6 +41,19 @@ $(document).ready(function() {
 			error: function(_, status, error) {
 				console.error("通信エラー:", status, error);
 				alert("データの取得中にエラーが発生しました。");
+			}
+		});
+	});
+	
+	/**
+	 * TodoComplete Confirm関数
+	 */
+	$(document).ready(function () {
+		$(".complete-form").on("submit", function (event) {
+			event.preventDefault();
+			const confirmation = confirm("このタスクを「完了」にしてもよろしいですか？");
+			if (confirmation) {
+				this.submit();
 			}
 		});
 	});

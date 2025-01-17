@@ -25,4 +25,6 @@ public interface TodoMapper {
 
   public List<HomeTodoDto> searchTodos(String query);
 
+  public void updateCompleteTodoById(Long id);
+
 }

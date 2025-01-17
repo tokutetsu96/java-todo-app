@@ -79,6 +79,7 @@
 			CURRENT_DATE
 		);
 	</insert>
+	
 	<select id="getAllTodos" resultMap="TodoResultMap">
 		SELECT
 			id,
@@ -107,4 +108,13 @@
 		ORDER BY
 			id
 	</select>
+	
+	<update id="updateCompleteTodoById">
+		UPDATE
+			todo
+		SET
+			is_completed = true
+		WHERE
+			id = #{id};
+	</update>
 </mapper>

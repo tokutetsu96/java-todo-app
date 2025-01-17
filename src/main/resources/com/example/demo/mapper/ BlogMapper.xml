@@ -20,7 +20,7 @@
 		FROM
 			blog
 		ORDER BY
-			created_at desc
+			id
 	</select>
 
 	<select id="getBlogById" resultMap="BlogResultMap">
@@ -59,4 +59,10 @@
 		ORDER BY
 			created_at desc
 	</select>
+	
+	<delete id="deleteBlogByid">
+		DELETE FROM blog
+		WHERE 
+			id = #{id};
+	</delete>
 </mapper>

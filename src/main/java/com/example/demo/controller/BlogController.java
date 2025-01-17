@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,8 @@ public class BlogController {
   /* ブログ用サービス */
   @Autowired
   private BlogService blogService;
+
+  private static final String NO_IMAGE_PATH = "/img/noimage.jpeg";
 
   @GetMapping("/home")
   public String showBlogPage(Model model) {
@@ -59,13 +62,12 @@ public class BlogController {
 
   @PostMapping("/create")
   public String createBlog(@ModelAttribute BlogForm blogForm) {
+
     MultipartFile imageFile = blogForm.getImage();
 
     if (!imageFile.isEmpty()) {
       try {
-
         String fileName = imageFile.getOriginalFilename();
-        // アップロード先ディレクトリを設定
         Path uploadPath = Paths.get("src/main/resources/static/img/");
         Files.createDirectories(uploadPath);
 
@@ -73,14 +75,22 @@ public class BlogController {
         imageFile.transferTo(filePath);
 
         blogForm.setImagePath("/img/" + fileName);
-
       } catch (IOException e) {
         e.printStackTrace();
+        return "redirect:/blog/home";
       }
     }
 
-    blogService.createBlog(blogForm);
+    if (!StringUtils.hasLength(blogForm.getImagePath())) {
+      blogForm.setImagePath(NO_IMAGE_PATH);
+    }
 
+    try {
+      blogService.createBlog(blogForm);
+      Thread.sleep(500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     return "redirect:/blog/home";
   }
 
@@ -89,6 +99,12 @@ public class BlogController {
     BlogEntity blog = blogService.getBlogById(id);
     model.addAttribute("blog", blog);
     return "blog/blog-detail";
+  }
+
+  @PostMapping("/delete/{id}")
+  public String deleteBlog(@PathVariable Long id) {
+    blogService.deleteBlogById(id);
+    return "redirect:/blog/home";
   }
 
 }

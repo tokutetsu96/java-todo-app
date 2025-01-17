@@ -5,14 +5,25 @@
 <head>
 	<title>Blog Detail</title>
 	<link rel="stylesheet" href="/css/blog.css">
+	<script th:src="@{/js/blog-detail.js}" defer></script>
 </head>
 
 <body>
 	<div layout:fragment="content">
 		<div class="container">
-			<div class="mb-4">
-				<a th:href="@{/blog/home}" class="btn btn-secondary">&larr; Back to Blog List</a>
+			<div class="d-flex justify-content-between mb-4">
+				<div>
+					<a th:href="@{/blog/home}" class="btn btn-secondary">&larr; Back to Blog List</a>
+				</div>
+				<div>
+					<form th:action="@{/blog/delete/{id}(id=${blog.id})}" method="post" class="blog-delete-form">
+						<input type="hidden" name="id" th:value="${blog.id}" />
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</div>
+				
 			</div>
+
 			<div class="blog-detail">
 
 				<h1 class="text-center mb-4 fw-bold" th:text="${blog.title}"></h1>

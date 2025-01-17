@@ -13,4 +13,6 @@ public interface BlogService {
   public BlogEntity getBlogById(Long id);
 
   public List<BlogEntity> searchBlogs(String query);
+
+  public void deleteBlogById(Long id);
 }
