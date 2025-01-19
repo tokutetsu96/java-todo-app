@@ -21,11 +21,9 @@
 						<button type="submit" class="btn btn-danger">Delete</button>
 					</form>
 				</div>
-				
 			</div>
 
 			<div class="blog-detail">
-
 				<h1 class="text-center mb-4 fw-bold" th:text="${blog.title}"></h1>
 
 				<p class="text-muted text-center mb-4">
@@ -37,9 +35,13 @@
 					<img th:src="${blog.imagePath}" class="fixed-size-image" alt="Blog Image">
 				</div>
 
-				<div class="blog-content">
-					<p th:utext="${blog.content}"></p>
-				</div>
+				<!-- Markdownコンテンツを表示する要素 -->
+				<div class="blog-content"></div>
+
+				<!-- Markdown内容を埋め込むための非表示要素 -->
+				<script th:inline="javascript">
+					const blogContent = /*[[${blog.content}]]*/ '';
+				</script>
 			</div>
 		</div>
 	</div>

@@ -90,7 +90,6 @@ public class TodoController {
    * TodoをDBに登録します。
    * 
    * @param CareateTodoForm
-   * 
    * @return todo.html
    */
   @PostMapping("/create")
@@ -114,6 +113,12 @@ public class TodoController {
     return "/todo/all-todo";
   }
 
+  /**
+   * TodoのisCompletedを更新する。
+   * 
+   * @param id
+   * @return todo.html
+   */
   @PostMapping("/complete/{id}")
   public String updateCompleteTodo(@PathVariable Long id) {
     todoService.updateCompleteTodoById(id);

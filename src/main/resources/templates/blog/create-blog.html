@@ -4,6 +4,8 @@
 
 <head>
 	<title>Create Blog Page</title>
+	<link rel="stylesheet" th:href="@{/css/create-blog.css}">
+	<script th:src="@{/js/create-blog.js}" defer></script>
 </head>
 
 <body class="bg-light">
@@ -23,9 +25,19 @@
 
 					<!-- Content -->
 					<div class="mb-4">
-						<label for="content" class="form-label fs-5 fw-bold">Content</label>
-						<textarea class="form-control form-control-lg" th:field="*{content}" rows="6"
+						<div class="d-flex gap-2">
+							<label for="content" class="form-label fs-5 fw-bold">Content</label>
+							<a href="https://qiita.com/Qiita/items/c686397e4a0f4f11683d"
+								class="fs-5" target="_blank">MarkDown記法チートシート</a>
+						</div>
+						<textarea id="content" class="form-control form-control-lg" th:field="*{content}" rows="6"
 							placeholder="Enter blog content" required></textarea>
+					</div>
+
+					<!-- Markdown Preview -->
+					<div class="mb-4">
+						<label class="form-label fs-5 fw-bold">Markdown Preview</label>
+						<div id="markdownPreview" class="markdown-preview"></div>
 					</div>
 
 					<!-- Author -->
